@@ -1,24 +1,21 @@
-name: CI
-on: [push, pull_request]
+name: CI  # This is the name of your workflow
 
+on: [push, pull_request]  # This defines the events that will trigger the workflow
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # Specifies the runner environment
+    
     steps:
-    -uses: actions/checkout@v2
-    -name: Set up Node.js
-     uses: actions/setup-node@v2
-     with:
-       node-version: '14'
+    - uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE
 
-    -name: Install dependencies
-    run: npm install
-    - name:Run tests
-      run: npm test
-    -name: Build
-     run: npm test
-    - name: Build
-      run: npm run build
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Set the Node.js version
+
+    - name: Install dependencies
+      run: npm install  # Install your project dependencies
       
+    - name: Run tests
+      run: npm test  # Replace this with your test command
