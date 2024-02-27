@@ -4,15 +4,15 @@ on: [push, pull_request]  # This defines the events that will trigger the workfl
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Specifies the runner environment
-    
+    runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2  # Checks out your repository under $GITHUB_WORKSPACE
+    - uses: actions/checkout@v3  # Updated to the latest version at the time of writing
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3  # Updated to the latest version at the time of writing
       with:
-        node-version: '20'  # Set the Node.js version
+        node-version: '20'  # Updated to use Node.js 20
 
     - name: Install dependencies
       run: npm install  # Install your project dependencies
