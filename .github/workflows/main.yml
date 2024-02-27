@@ -1,21 +1,24 @@
-name: CI  # This is the name of your workflow
+name: CI
 
-on: [push, pull_request]  # This defines the events that will trigger the workflow
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3  # Updated to the latest version at the time of writing
+    - uses: actions/checkout@v3
+      # No changes are needed here specifically for Node.js 20, 
+      # but always check for the latest version.
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3  # Updated to the latest version at the time of writing
+      uses: actions/setup-node@v3
       with:
-        node-version: '20'  # Updated to use Node.js 20
+        node-version: '20'
+        # This ensures the environment uses Node.js 20
 
     - name: Install dependencies
-      run: npm install  # Install your project dependencies
-      
+      run: npm install
+
     - name: Run tests
-      run: npm test  # Replace this with your test command
+      run: npm test
